@@ -121,4 +121,7 @@ const { log } = require('console');
 const data = process.argv
 console.log(data);
 console.log(data[2],data[3]);
-console.log();
+console.log(process.version);
+console.log(process.platform);
+console.log(process.pid);
+console.log(process.cwd);
