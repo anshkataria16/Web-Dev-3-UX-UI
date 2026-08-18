@@ -4,7 +4,7 @@ const fs = require("fs")
 const crypte = require("crypto")
 const dns = require('dns');
 const process = require('process');
-const { log } = require('console');
+// const { log } = require('console');
 // console.log(os.homedir());
 
 // // const filepath = path.resolve("lecture5","core_modules.js")
