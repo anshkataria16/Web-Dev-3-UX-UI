@@ -7,5 +7,8 @@ app.get("/",(req,res)=>{
 app.get("/about",(req,res)=>{
     res.send("about page")
 })
+app.get("/about",(req,res)=>{
+    res.send("about page")
+})
 
 app.listen(PORT,()=>{console.log("server is running on port",PORT);})
