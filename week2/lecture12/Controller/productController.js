@@ -1,3 +1,4 @@
+const products = require('../data/data.js');
 const data = require('../data/data.js')
 
 const getProduct = (req,res)=>{
@@ -47,5 +48,21 @@ const deleteProducts = (req,res)=>{
     products.splice(index,1);
     res.json({success:true,result});
 }
+ 
+const searchproducts=(res,req)=>{
+    const {name,category,price}=req.query;
+    console.log(name,category,price);
 
-module.exports = {deleteProducts,addProducts,getProduct,getProductsById,updateProducts}
+    let result;
+    if(name){
+        result = products.filter((product)=>product.name===name)
+    }
+    if(category){
+        result = products.filter((product)=>product.category===category)
+    }
+    if(price){
+        result = products.filter((product)=>product.price===Number(price))
+    }
+    res.json({total:result.length,result})
+}
+module.exports = {deleteProducts,addProducts,getProduct,getProductsById,updateProducts,searchproducts}
