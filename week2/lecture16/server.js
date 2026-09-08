@@ -1,15 +1,19 @@
 const express = require('express')
-
+const morgan = require("morgan")
 const app = express()
 
 const PORT = 3000
 
-const logmiddleware=(req,res,next)=>{
-    console.log("Request method:",req.method);
-    console.log("Request URL:",req.url);
-    next()  //agr ye nhi likhoge toh req chlti rhegi kyuki middleware ne aage bheja hi nhi
-}
+// const logmiddleware=(req,res,next)=>{
+//     console.log("Request method:",req.method);
+//     console.log("Request URL:",req.url);
+//     console.log("Date",new Date().toLocaleString());
+//     next()  //agr ye nhi likhoge toh req chlti rhegi kyuki middleware ne aage bheja hi nhi
+// }
 
+app.use(morgan("dev"))
+// app.use(morgan("tiny"))
+// app.use(morgan("combined"))
 const apicheck= (req,res,next)=>{
     if(req.query.API_KEY==="1234"){
         next()
@@ -18,7 +22,7 @@ const apicheck= (req,res,next)=>{
     }
 }
 
-// app.use(apicheck)
+app.use(apicheck)
 // app.use(logmiddleware)
 
 app.get("/",(req,res)=>{
@@ -26,7 +30,7 @@ app.get("/",(req,res)=>{
     res.send("Hello from home")
 })
 
-app.get("/students",logmiddleware,apicheck,(req,res)=>{
+app.get("/students",(req,res)=>{
     console.log("hello from student");
     res.send("Hello from student")
 })
