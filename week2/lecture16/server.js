@@ -18,15 +18,15 @@ const apicheck= (req,res,next)=>{
     }
 }
 
-app.use(apicheck)
-app.use(logmiddleware)
+// app.use(apicheck)
+// app.use(logmiddleware)
 
 app.get("/",(req,res)=>{
     console.log("hello from home");
     res.send("Hello from home")
 })
 
-app.get("/students",(req,res)=>{
+app.get("/students",logmiddleware,apicheck,(req,res)=>{
     console.log("hello from student");
     res.send("Hello from student")
 })
