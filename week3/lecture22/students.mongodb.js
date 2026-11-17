@@ -2,32 +2,32 @@ use("collegeDB");
 
 // db.createCollection("Students2");
 
-// db.Students2.insert([
-//     {
-//         name:"Mayank",
-//         age:21,
-//         city:"GGN",
-//         sem:3,
-//         course:"BTech",
-//         fees:270000
-//     },
-//     {
-//         name:"Ansh",
-//         age:18,
-//         city:"GGN",
-//         sem:3,
-//         course:"BTech",
-//         fees:270000
-//     },
-//     {
-//         name:"Daksh",
-//         age:18,
-//         city:"Rewari",
-//         sem:3,
-//         course:"BCA",
-//         fees:200000
-//     }
-// ])
+db.Students2.insert([
+    {
+        name:"Prince",
+        age:21,
+        city:"Surat",
+        sem:6,
+        course:"BCom",
+        fees:27000
+    },
+    {
+        name:"Bansal",
+        age:23,
+        city:"Noida",
+        sem:5,
+        course:"Mtech",
+        fees:270000
+    },
+    {
+        name:"ritvik",
+        age:23,
+        city:"Rewari",
+        sem:7,
+        course:"BCA",
+        fees:200000
+    }
+])
 // db.Students2.find({city:"GGN"})
 
 // db.Students2.find({age:{$gt:18}})
