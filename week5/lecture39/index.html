@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Chat App</h1>
+    <input type="text" id="message" placeholder="Enter your message">
+    <button onclick="handleclick()" id="btn">Send</button>
+    <ul id="chatcontainer"></ul>
+    <script>
+        const ws = new WebSocket("ws://localhost:3000")
+        const msg = document.getElementById("message")
+        const btn = document.getElementById("btn")
+        const chatbox = document.getElementById("chatcontainer")
+        ws.onmessage=(event)=>{
+            const li = document.createElement("li")
+            li.innerText=event.data
+            chatbox.appendChild(li)
+        }
+        const handleclick=()=>{
+            ws.send(msg.value)
+        }
+
+    </script>
+</body>
+</html>
